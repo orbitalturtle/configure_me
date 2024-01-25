@@ -1,7 +1,3 @@
-pub mod prelude {
-    pub use super::{Config, ResultExt};
-}
-
 pub enum ArgParseError {
     MissingArgument(&'static str),
     UnknownArgument(String),
