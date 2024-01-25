@@ -673,10 +673,6 @@ fn gen_merge_args<W: Write>(config: &Config, mut output: W) -> fmt::Result {
 
 pub fn generate_code<W: Write>(config: &Config, mut output: W) -> fmt::Result {
     let has_mandatory = config.params.iter().any(|param| if let Optionality::Mandatory = param.optionality { true } else { false });
-    writeln!(output, "pub mod prelude {{")?;
-    writeln!(output, "    pub use super::{{Config, ResultExt}};")?;
-    writeln!(output, "}}")?;
-    writeln!(output)?;
     writeln!(output, "pub enum ArgParseError {{")?;
     writeln!(output, "    MissingArgument(&'static str),")?;
     writeln!(output, "    UnknownArgument(String),")?;
